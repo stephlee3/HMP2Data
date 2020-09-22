@@ -50,6 +50,19 @@ IBD <- IBD16S()
 
 Please see the vignette for more information about the usage of the package.
 
+## MOMS-PI Controlled access dbGaP metadata 
+
+To access the restricted metadata, you need to first install the latest version of [NCBI SRA Toolkit](https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit). Then you can provide the ngc key and run the following command:
+
+```r
+momspi16S_phyloseq = momspi16S()
+momspi16S_phyloseq_restricted <-
+    attach_dbGaP(phyloseq_obj = momspi16S_phyloseq,
+    dbGaP_repository_key = "/path/to/prj_12345.ngc")
+```
+
+
+
 ## Contact information
 
 If you have questions, comments, or suggestions you feel free to contact John Stansfield (stansfieldjc[at]vcu[dot]edu) or Mikhail Dozmorov (mikhail.dozmorov[at]vcuhealth[dot]org).

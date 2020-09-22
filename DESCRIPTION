@@ -54,5 +54,5 @@ biocViews:
     MicrobiomeData,
     ReproducibleResearch,
     SequencingData
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr
