@@ -13,10 +13,11 @@ Please, review the [publication moratorium](https://hmpdacc.org/ihmp/overview/da
 
 *[HMP2Data](http://bioconductor.org/packages/HMP2Data)* can be installed
 using *[BiocManager](https://cran.r-project.org/package=BiocManager)* as
-follows.
+follows. To install the latest version from Github:
 
 ```r
 BiocManager::install("HMP2Data")
+devtools::install_github("stephlee3/HMP2Data")
 ```
 
 The vignettes can be browsed using `browseVignettes("HMP2Data")`.
