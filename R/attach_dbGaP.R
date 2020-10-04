@@ -65,6 +65,14 @@ attach_dbGaP <- function(phyloseq_obj, dbGaP_repository_key = "") {
     download_dbGaP(dbGaP_repository_key)
   }
   
+  if(!check_download_status()){
+    message("\nIncomplete downloading due to connection issues with NCBI. Try to re-download the data...")
+    download_dbGaP(dbGaP_repository_key)
+  }
+  if (check_download_status())
+    message("\nSuccessfully downloading all the dbGaP data...\n")
+    
+
   message("\nMerging the dbGaP data...\n")
   complete_phyloseq = merge_dbGap(phyloseq_obj)
   return(complete_phyloseq)

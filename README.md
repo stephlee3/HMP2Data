@@ -28,7 +28,7 @@ The stable version is available at the dozmorovlab GitHub repository [https://gi
 
 ## Usage example
 
-To load the MOMSPI16S data run the following commands. This will generate a phyloseq object with the 16S rRNA data.
+To load the MOMSPI16S data run the following commands. This will generate a phyloseq object with the 16S rRNA data. 
 
 ```r
 library(HMP2Data)
@@ -60,7 +60,7 @@ momspi16S_phyloseq_restricted <-
     attach_dbGaP(phyloseq_obj = momspi16S_phyloseq,
     dbGaP_repository_key = "/path/to/prj_12345.ngc")
 ```
-
+Note: Try to rerun the function if you encounter connection issues with NCBI. The function will return a message to indicate whether you successfully download the dbGap data or not.   
 
 
 ## Contact information
