@@ -65,15 +65,15 @@ attach_dbGaP <- function(phyloseq_obj, dbGaP_repository_key = "") {
     download_dbGaP(dbGaP_repository_key, dbGaP_directory)
   }
   
-  if(!check_download_status()){
+  if(!check_download_status(dbGaP_directory)){
     message("\nIncomplete downloading due to connection issues with NCBI. Try to re-download the data...")
-    download_dbGaP(dbGaP_repository_key)
+    download_dbGaP(dbGaP_repository_key, dbGaP_directory)
   }
-  if (check_download_status())
+  if (check_download_status(dbGaP_directory))
     message("\nSuccessfully downloading and decrypting all the dbGaP data...")
     
 
   message("\nMerging the dbGaP data...")
-  complete_phyloseq = merge_dbGap(phyloseq_obj)
+  complete_phyloseq = merge_dbGap(phyloseq_obj, dbGaP_directory)
   return(complete_phyloseq)
 }

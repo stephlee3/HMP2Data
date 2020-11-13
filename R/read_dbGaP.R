@@ -18,7 +18,8 @@ quiet_join <- function(x, y) {
     full_join(x, y, by = .)
 }
 
-read_dbGaP_sample <- function() {
+read_dbGaP_sample <- function(dbGaP_directory) {
+  paths = create_paths(dbGaP_directory)
   list(#paths$MOMS_PI_Subject_file_path,
     paths$MOMS_PI_Sample_file_path,
     #paths$MOMS_PI_Clinical_file_path,
@@ -34,7 +35,8 @@ read_dbGaP_sample <- function() {
     dplyr::rename(BioSample_Accession = `BioSample Accession`)
 }
 
-read_dbGaP_visit <- function() {
+read_dbGaP_visit <- function(dbGaP_directory) {
+  paths = create_paths(dbGaP_directory)
   list(paths$MOMS_PI_Subject_file_path,
        #paths$MOMS_PI_Sample_file_path,
        paths$MOMS_PI_Clinical_file_path,

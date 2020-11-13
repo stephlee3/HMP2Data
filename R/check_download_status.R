@@ -2,8 +2,8 @@
 #' 
 #' @importFrom magrittr %>%
 
-check_download_status <- function() {
-  dbGaP_dir_files = list.files(paths$dbGaP_directory)
+check_download_status <- function(dbGaP_directory) {
+  dbGaP_dir_files = list.files(dbGaP_directory)
   required_files = c(paths$MOMS_PI_Subject_file,
     paths$MOMS_PI_Sample_file,
     paths$MOMS_PI_Clinical_file,

@@ -12,9 +12,9 @@
 #' @importFrom tidyr spread
 #' @import phyloseq
 
-merge_dbGap = function(phyloseq_obj){
-  sample_integration = read_dbGaP_sample()
-  visit_info = read_dbGaP_visit()
+merge_dbGap = function(phyloseq_obj, dbGaP_directory){
+  sample_integration = read_dbGaP_sample(dbGaP_directory)
+  visit_info = read_dbGaP_visit(dbGaP_directory)
   open_access_metadata = data.frame(phyloseq_obj@sam_data)
   
   #visit_info_fill =
