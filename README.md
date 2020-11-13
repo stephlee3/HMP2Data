@@ -16,7 +16,6 @@ using *[BiocManager](https://cran.r-project.org/package=BiocManager)* as
 follows. To install the latest version from Github:
 
 ```r
-BiocManager::install("HMP2Data")
 devtools::install_github("stephlee3/HMP2Data")
 ```
 

@@ -46,7 +46,7 @@
 #' @importFrom assertthat is.readable
 #' @importFrom SummarizedExperiment colData<-
 attach_dbGaP <- function(phyloseq_obj, dbGaP_repository_key = "") {
-  dbGaP_directory <- paths$dbGaP_directory
+  dbGaP_directory <- paste0("dbGaP-",gsub(".*prj_(.+).ngc", "\\1", dbGaP_repository_key))
   
   if (!dir.exists(dbGaP_directory)) {
     dir.create(dbGaP_directory)
@@ -62,7 +62,7 @@ attach_dbGaP <- function(phyloseq_obj, dbGaP_repository_key = "") {
              call. = FALSE)
       }
     message("\nDownloading the dbGaP data...\n")
-    download_dbGaP(dbGaP_repository_key)
+    download_dbGaP(dbGaP_repository_key, dbGaP_directory)
   }
   
   if(!check_download_status()){
@@ -70,10 +70,10 @@ attach_dbGaP <- function(phyloseq_obj, dbGaP_repository_key = "") {
     download_dbGaP(dbGaP_repository_key)
   }
   if (check_download_status())
-    message("\nSuccessfully downloading all the dbGaP data...\n")
+    message("\nSuccessfully downloading and decrypting all the dbGaP data...")
     
 
-  message("\nMerging the dbGaP data...\n")
+  message("\nMerging the dbGaP data...")
   complete_phyloseq = merge_dbGap(phyloseq_obj)
   return(complete_phyloseq)
 }
